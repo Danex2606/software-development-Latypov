@@ -10,6 +10,9 @@ namespace HelloApp
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        public string Company { get; set; }
+        public string Supervisor { get; set; }
+        public int Money { get; set; }
     }
     
     class Program
@@ -101,7 +104,7 @@ namespace HelloApp
                 // File.Delete(path);
             }
 
-            Person tom = new Person { Name = "Tom", Age = 35 };
+            Person tom = new Person { Name = "Tom", Age = 35,Company = "NDMedia", Supervisor = "Nikita", Money = 4000 };
             string json = JsonSerializer.Serialize<Person>(tom);
             using (FileStream fstream = new FileStream($"test.json", FileMode.OpenOrCreate))
             {
