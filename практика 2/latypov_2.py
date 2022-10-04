@@ -25,7 +25,6 @@ def crack_sha256_thread(idx, hashes, start, end):
 
 
 def crack_sha256():
-    start_time = time.perf_counter()
 
     hashes = ["1115dd800feaacefdf481f1f9070374a2a81e27880f187396db67958b207cbad",
               "3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b",
@@ -34,6 +33,8 @@ def crack_sha256():
     N = 26**5-1
     n_threads = int(input("Количество потоков для SHA256:"))
     per_thread = N // n_threads
+    
+    start_time = time.perf_counter()
 
     threads = []
     start = 0
@@ -61,7 +62,6 @@ def crack_md5_thread(idx, hashes, start, end):
             print("Хэш {} найден: {} потоком {}.".format(hash, password, idx))
 
 def crack_md5():
-    start_time = time.perf_counter()
 
     hashes = ["8b61c11eb8baedd53d2e99d1a01fa7bb",
               "286a03842af6933d393d492880934fb5",
@@ -71,6 +71,7 @@ def crack_md5():
     n_threads = int(input("Количество потоков для MD5:"))
     per_thread = N // n_threads
 
+    start_time = time.perf_counter()
     threads = []
     start = 0
     for i in range(n_threads):
